@@ -78,7 +78,7 @@ function Home() {
             ...destinatario,
             email: user.email,
         }
-
+console.log(db)
         const callback2 = async (object) => {
             getSpecificDataEq(`/envios/`, 'user uuid', user.uid, setEnviosDB)
             getSpecificDataEq(`/cambios/`, 'user uuid', user.uid, setCambiosDB)
@@ -97,7 +97,9 @@ function Home() {
                         "importe": object['importe'],
                         "user uuid": object['user uuid'],
                         "uuid": object.uuid,
-                        "operacionURL": object['operacion'] === 'Envio' ? 'envios' : 'cambios'
+                        "operacionURL": object['operacion'] === 'Envio' ? 'envios' : 'cambios',
+                        "name": userDB.nombre,
+                        "lastaName":userDB.apelledo
                     }),
 
                     // WITH APPSCRIPT ONLY
@@ -108,11 +110,7 @@ function Home() {
                     // }),
                 })
                 setModal(`Finalizando...`)
-
-                console.log(res)
-
                 const data = await res.json()
-                console.log(data)
 
                 const botChat = ` 
                 ---DATOS REGISTRO DE REMITENTE---\n
@@ -148,8 +146,6 @@ function Home() {
                   ---DATOS DE TRANSACCION BOTTAK---\n
                   banco de transferencia: ${db['banco de transferencia']},\n 
                   `
-
-
 
                 await fetch(`/api/bot`, {
                     method: 'POST',
@@ -194,14 +190,6 @@ function Home() {
             ? uploadStorage(`cambios/${uuid}`, postImage, { ...db, fecha, date, uuid, estado: 'En verificación', verificacion: false, email: user.email }, callback)
             : uploadStorage(`envios/${uuid}`, postImage, { ...db, fecha, date, uuid, estado: 'En verificación', verificacion: false, email: user.email }, callback)
     }
-
-
-    console.log(user)
-
-
-
-
-
 
     return (
         countries[userDB.cca3] !== undefined && countries[userDB.cca3].countries !== undefined
@@ -284,9 +272,6 @@ function Home() {
                     </div>}
 
                 </div>
-
-
-
 
                 {success == 'CompletePais' && <Msg>Seleccione un pais</Msg>}
             </form>
