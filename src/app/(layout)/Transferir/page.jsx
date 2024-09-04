@@ -99,7 +99,7 @@ console.log(db)
                         "uuid": object.uuid,
                         "operacionURL": object['operacion'] === 'Envio' ? 'envios' : 'cambios',
                         "name": userDB.nombre,
-                        "lastaName":userDB.apelledo
+                        "lastaName":userDB.apellido
                     }),
 
                     // WITH APPSCRIPT ONLY
