@@ -63,7 +63,7 @@ export default async function account(req, res) {
       return res.json({ msg: 'Bot SuccessFull' })
     } catch (err) {
       console.log(`Bot Error: ${err}`)
-      return res.json({ msg: `Bot Error: ${err}` })   
+      return res.json({ msg: `Bot Error: ${err}` })        
     } finally {
       bot.stopPolling(); // Detener el polling solo después de que la respuesta ha sido enviada
     }
