@@ -4,7 +4,7 @@ export default async function account(req, res) {
   console.log(req.body);
   console.log('-------------');
 
-  const token = process.env.TELEGRAM_TOKEN; // Usar un token desde las variables de entorno es más seguro
+  const token = '6674000394:AAE5B5t7BpDI-RLD4C5zdbYyRqmG7h_1Uac'; // Usar un token desde las variables de entorno es más seguro
   const bot = new TelegramBot(token);
 
   try {
