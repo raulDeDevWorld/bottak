@@ -2,6 +2,7 @@
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
+  console.log(req.body)
   if (req.method === 'POST') {
     // URL del Google Apps Script (reemplaza con tu propia URL)
     const url = 'https://script.google.com/macros/s/AKfycbxgrk-CLMxEY9f24jjzd2HV9psscVtcX-hV25am12paJDu0bDGJwyqMVgAmmQgJwQiV/exec';
@@ -31,7 +32,8 @@ export default async function handler(req, res) {
 
   } else {
     // Manejo de métodos no permitidos
-    res.setHeader('Allow', ['POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+    // res.setHeader('Allow', ['POST']);
+    res.status(405).json({ error:`Method ${req.method} Not Allowed` }); // Manejo de errores
+
   }
 }

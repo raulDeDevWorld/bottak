@@ -86,7 +86,7 @@ function Home() {
             try {
                 setModal(`Enviando los resultados de la VERIFICACION RAPIDA a \n ${user.email}`)
 
-                const googleSheet = fetch('/api/postGoogleSheet', {
+                const res = await fetch('/api/postGoogleSheet', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -108,7 +108,10 @@ function Home() {
                     // }),
                 })
                 setModal(`Finalizando...`)
-                const data = await googleSheet.json()
+
+                console.log(res)
+
+                const data = await res.json()
                 console.log(data)
 
                 const botChat = ` 
