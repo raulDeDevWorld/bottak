@@ -21,28 +21,7 @@ export default function Home({children}) {
   const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG, transferencia } = useUser()
   const router = useRouter()
 
-  const signInHandler = async (e) => {
-    e.preventDefault()
-    let email = e.target[0].value
-    let password = e.target[1].value
-
-    if (email.length == 0 || password.length == 0) {
-      return setUserSuccess('Complete')
-    }
-    const res = await signInWithEmail(email, password, setUserProfile)
-
-    if (res == null) {
-
-      setUserSuccess('Intente')
-
-      return
-    }
-
-    if (res && (userDB == null || userDB == undefined)) {
-      const data = await getSpecificData(`/users/${res.uid}`)
-      data == null ? router.push('/Register') : router.push('/Register/Destinatario')
-    }
-  }
+  
 
 
   useEffect(() => {
@@ -75,6 +54,8 @@ export default function Home({children}) {
         {success == 'Existe' && <Msg>Cuenta ya registrada</Msg>}
         {success == 'Complete' && <Msg>Llene todo el formulario</Msg>}
         {success == 'La cuenta ya esta en uso' && <Msg>La cuenta ya esta en uso</Msg>}
+        {success == 'Datos Incorrectos' && <Msg>Datos Incorrectos</Msg>}
+
       </div>
     </main>
   )}

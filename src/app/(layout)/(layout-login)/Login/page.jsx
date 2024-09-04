@@ -28,7 +28,7 @@ export default function Home() {
     if (email.length == 0 || password.length == 0) {
       return setUserSuccess('Complete')
     }
-    const res = await signInWithEmail(email, password, setUserProfile)
+    const res = await signInWithEmail(email, password, setUserProfile, setUserSuccess)
 
     // if (res == null) {
 
