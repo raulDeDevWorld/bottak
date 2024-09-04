@@ -160,7 +160,7 @@ console.log(db)
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ data: botChat, estado: db.estado, email: user.email })
+                    body: JSON.stringify({ data: botChat, estado: data?.message && data?.message !== undefined && data.message === 'Verificado con Exito' ? 'Verificado' : 'En verificación', email: user.email })
                 })
                 router.replace(`/Exitoso?uuid=${uuid}&operacion=${object['operacion'] === 'Cambio' ? 'cambios' : 'envios'}`)
                 setModal('')
