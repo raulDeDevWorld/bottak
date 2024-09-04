@@ -155,14 +155,13 @@ console.log(db)
                     body: JSON.stringify({ data: botChat, url: object.url }),
                 })
 
-
-                // await fetch(`/api/sendEmail`, {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //     },
-                //     body: JSON.stringify({ data: botChat, estado: db.estado, email: user.email })
-                // })
+                await fetch(`/api/sendEmail`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ data: botChat, estado: db.estado, email: user.email })
+                })
                 router.replace(`/Exitoso?uuid=${uuid}&operacion=${object['operacion'] === 'Cambio' ? 'cambios' : 'envios'}`)
                 setModal('')
             } catch (err) {
