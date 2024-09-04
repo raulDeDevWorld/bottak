@@ -165,7 +165,7 @@ console.log(db)
                 router.replace(`/Exitoso?uuid=${uuid}&operacion=${object['operacion'] === 'Cambio' ? 'cambios' : 'envios'}`)
                 setModal('')
             } catch (err) {
-                console.log(err)    
+                console.log(err)        
             }
         }
 
