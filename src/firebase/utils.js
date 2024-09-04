@@ -10,6 +10,7 @@ function onAuth(setUserProfile, setUserData) {
   return onAuthStateChanged(auth, (user) => {
     if (user) {
       setUserProfile(user)
+      // getSpecificData(`/users/${user.uid}`, setUserData)
       // getData(setUserData)
     } else {
       setUserProfile(null)
