@@ -4,7 +4,7 @@ import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCZDfvVM9VIatRLZW_PESK2tb9ytPGyp0s",
-  authDomain: "bottakv2-c30da.firebaseapp.com",
+  authDomain: "bottakv2-c30da.firebaseapp.com",    
   databaseURL: "https://bottakv2-c30da-default-rtdb.firebaseio.com",
   projectId: "bottakv2-c30da",
   storageBucket: "bottakv2-c30da.appspot.com",
