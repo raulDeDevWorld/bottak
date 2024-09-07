@@ -37,7 +37,9 @@ console.log( credentialFB)
 if (!admin.apps.length) {
     admin.initializeApp({
         credential: admin.credential.cert(credentialFB),
-        databaseURL: "https://bottak-15afa-default-rtdb.firebaseio.com"
+        databaseURL: "https://bottakv2-c30da-default-rtdb.firebaseio.com"
+
+        // databaseURL: "https://bottak-15afa-default-rtdb.firebaseio.com"
     });
 }
 
