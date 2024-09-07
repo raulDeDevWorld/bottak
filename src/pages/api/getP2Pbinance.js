@@ -1,7 +1,7 @@
 
 
 
-
+// GET & APPLY FUNCTION
 
 import fetch from 'node-fetch';
 
@@ -40,6 +40,7 @@ export default async function account(req, res) {
 
         const jsonData = await responseData.json();
 
+        // console.log(jsonData)
 
         res.json(jsonData);
 

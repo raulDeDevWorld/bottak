@@ -247,7 +247,7 @@ export default function Home() {
   // }
 
 
-
+// GET 10 ROWS P2P EXCHANGE CABECERA
 
   async function getChangeP2P(e) {
     e.preventDefault()
@@ -285,7 +285,7 @@ export default function Home() {
 
 
 
-
+// GET & APPLY FUNCTION
   async function getExchage(i) {
 
     const data = {
@@ -321,7 +321,6 @@ export default function Home() {
 
     const jsonData = await responseData.json();
     const jsonData2 = await responseData2.json();
-
     if (jsonData.data.length !== 0 && jsonData2.data.length !== 0) {
       let tempMaxima = Math.max(...jsonData.data.map((i) => i.adv.price));
       let tempMinima = Math.min(...jsonData.data.map((i) => i.adv.price));
@@ -335,6 +334,9 @@ export default function Home() {
 
       const cp = i['compra porcentaje'] ? promedio * ((i['compra porcentaje'] * 1)/100 ): 0
       const vp = i['venta porcentaje'] ? promedio2 * ((i['venta porcentaje']*1)/100) : 0
+
+      console.log('compra', (promedio + 0.01 - cp *1).toFixed(2))
+      console.log('venta',(promedio2 + 0.01 + vp *1).toFixed(2))
       setState({ ...state, [i.code]: { ...state[i.code], compra: (promedio + 0.01 - cp *1).toFixed(2), venta: (promedio2 + 0.01 + vp *1).toFixed(2), ...getDayMonthYear2()  } })
     } else {
       setModal('NonExchange')

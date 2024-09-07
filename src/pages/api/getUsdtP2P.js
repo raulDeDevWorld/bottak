@@ -43,14 +43,6 @@ if (!admin.apps.length) {
     });
 }
 
-
-
-
-
-
-
-
-
 // console.log({
 
 // "type":process.env.TYPE,
@@ -177,12 +169,7 @@ export default async function account(req, res) {
 
                 getExchange(data, index * 1 + 1 == resData.length * 1, i)
             })
-
-
         });
-
-
-
     }
     getFirebaseDB()
 
