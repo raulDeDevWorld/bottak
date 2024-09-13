@@ -74,7 +74,7 @@ function StopWatch() {
 
   async function getAllExchage(i) {
     try {
-      const responseData = await fetch('/api/getUsdtP2P')
+      const responseData = await fetch('https://f05lpixnh8.execute-api.us-east-1.amazonaws.com/Version_1')
       const jsonData = await responseData.json();
       console.log(jsonData)
       setCount(0)
