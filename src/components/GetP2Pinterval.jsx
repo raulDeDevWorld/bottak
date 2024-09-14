@@ -74,10 +74,10 @@ function StopWatch() {
 
   async function getAllExchage(i) {
     try {
+            setCount(0)
+
       const responseData = await fetch('https://f05lpixnh8.execute-api.us-east-1.amazonaws.com/Version_1')
-    
-      setCount(0)
-    } catch (error) {
+        } catch (error) {
       console.error(error);
     }
   }
